@@ -1,5 +1,5 @@
 import React from "react";
-import Hero from "src/components/Home/Hero";
+import Hero from "src/components/Home/Hero/Hero";
 
 function HomePage() {
     return (

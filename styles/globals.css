@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "@fontsource/poppins";
-
 html,
 body {
     padding: 0;
