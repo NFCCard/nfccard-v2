@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { IconsWrapper, LogoWrapper, StyledHeaderWrapper } from "./StyledHeader";
 import logo from "../../../../public/static/images/nfc.png";
-import LanguageToggle from "../LanguageToggle/LanguageToggle";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 const Header = () => {
     return (
@@ -11,7 +11,7 @@ const Header = () => {
                 <Image src={logo} alt="logo" width={50} height={50} />
             </LogoWrapper>
             <IconsWrapper>
-                <LanguageToggle />
+                <ThemeToggle />
             </IconsWrapper>
         </StyledHeaderWrapper>
     );
