@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 export const LayoutWrapper = styled.div`
-    ${tw` min-h-screen bg-layout-bg dark:bg-layout-bg-dark bg-no-repeat bg-center bg-cover`}
+    ${tw` min-h-screen   bg-no-repeat bg-center bg-cover`}
 `;
 export const LayoutMain = styled.div`
     ${tw`w-full transition-all duration-500`}

@@ -53,12 +53,6 @@ module.exports = {
                     alternative: "#F29F7E",
                 },
             },
-            backgroundImage: {
-                "layout-bg": "url('/images/bg-light.png')",
-                "layout-bg-dark": "url('/images/bg-dark.png')",
-                "layout-bg-footer-dark": "url('/images/FooterBackground.png')",
-                "footer-bg": "url('/images/FooterLightBackground.png')",
-            },
         },
     },
     plugins: [],
