@@ -1,6 +1,6 @@
 {
-    "name": "shirik-v2",
-    "version": "0.1.2",
+    "name": "nfccardapp-v2",
+    "version": "2.1.2",
     "private": true,
     "scripts": {
         "dev": "next dev",
