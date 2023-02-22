@@ -1,10 +1,10 @@
+import Home from "containers/Home/Home";
 import React from "react";
-import Hero from "src/components/Home/Hero/Hero";
 
 function HomePage() {
     return (
         <main>
-            <Hero />
+            <Home />
         </main>
     );
 }

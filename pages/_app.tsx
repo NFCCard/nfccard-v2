@@ -8,8 +8,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../styles/globals.css";
-import LocalizationProvider from "src/components/Common/LocalizationProvider";
-import Layout from "src/components/Common/Layout/Layout";
+import LocalizationProvider from "src/components/Shared/LocalizationProvider";
+import Layout from "src/components/Shared/Layout/Layout";
 
 export default function App({ Component, pageProps }: AppProps) {
     return (

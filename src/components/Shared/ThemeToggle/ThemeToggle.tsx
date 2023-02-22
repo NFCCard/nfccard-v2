@@ -4,19 +4,18 @@ import SunIcon from "public/static/icons/SunIcon";
 import React, { useState } from "react";
 import {
     StyledIconsWrapper,
-    StyledLanguageToggleWrapper,
+    StyledThemeToggleWrapper,
     StyledToggle,
     StyledToggleCircle,
     StyledToggleWrapper,
 } from "./StyledThemeToggle";
 
 const ThemeToggle = () => {
-    const { setTheme } = useTheme();
-    const [isDark, setIsDark] = useState(false);
+    const { setTheme, theme } = useTheme();
+    const [isDark, setIsDark] = useState(theme === "dark");
 
     const toggleThemeHandler = () => {
         setIsDark(!isDark);
-        console.log(isDark);
         if (!isDark) {
             return setTheme("dark");
         }
@@ -24,7 +23,7 @@ const ThemeToggle = () => {
     };
 
     return (
-        <StyledLanguageToggleWrapper>
+        <StyledThemeToggleWrapper>
             <StyledToggleWrapper>
                 <StyledIconsWrapper>
                     <SunIcon />
@@ -36,7 +35,7 @@ const ThemeToggle = () => {
                     <MoonIcon />
                 </StyledIconsWrapper>
             </StyledToggleWrapper>
-        </StyledLanguageToggleWrapper>
+        </StyledThemeToggleWrapper>
     );
 };
 

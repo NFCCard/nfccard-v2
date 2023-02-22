@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import tw from "twin.macro";
 
-export const StyledLanguageToggleWrapper = styled.div``;
+export const StyledThemeToggleWrapper = styled.div``;
 
 export const StyledToggleWrapper = styled.div`
     ${tw`w-full h-full flex flex-col justify-center items-center`}
