@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
-import DropDown from "../../Base/DropDown/DropDown";
+import DropDown from "@base/DropDown/DropDown";
 import { StyledProfileDropDownWrapper } from "./StyledProfileDropDown";
-import avatar from "../../../../public/static/images/user.png";
 import Image from "next/image";
 import useOnClickOutside from "src/hooks/useOnClickOutside";
 
@@ -15,7 +14,7 @@ const ProfileDropDown = () => {
             <DropDown
                 button={
                     <Image
-                        src={avatar}
+                        src={"/static/images/user.png"}
                         alt="avatar"
                         width={30}
                         height={30}

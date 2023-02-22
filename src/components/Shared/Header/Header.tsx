@@ -6,9 +6,8 @@ import {
     StyledContainer,
     StyledHeaderWrapper,
 } from "./StyledHeader";
-import logo from "../../../../public/static/images/nfc.png";
-import ThemeToggle from "../ThemeToggle/ThemeToggle";
-import ProfileDropDown from "../ProfileDropDown/ProfileDropDown";
+import ThemeToggle from "@components/Shared/ThemeToggle/ThemeToggle";
+import ProfileDropDown from "@components/Shared/ProfileDropDown/ProfileDropDown";
 
 const Header = () => {
     return (
@@ -20,7 +19,7 @@ const Header = () => {
                 </StyledIconsWrapper>
                 <StyledLogoWrapper>
                     <Image
-                        src={logo}
+                        src={"/static/images/nfc.png"}
                         alt="logo"
                         width={50}
                         height={50}
