@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
-                <LocalizationProvider messages={{ local: "en" }}>
+                <LocalizationProvider messages={{ local: "fa" }}>
                     <ThemeProvider enableSystem={false} attribute="class">
                         <Layout>
                             <Component {...pageProps} />

@@ -1,4 +1,5 @@
-const { CompletionInfoFlags } = require("typescript");
+const { ProvidePlugin } = require("webpack");
+const { join } = require("path");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { StyledFooterWrapper, StyledBrandName } from "./StyledFooter";
 
 const Footer = () => {
-  return (
-    <div>Footer</div>
-  )
-}
+    return (
+        <StyledFooterWrapper>
+            Copyright © 2023 <StyledBrandName>NFC</StyledBrandName>
+        </StyledFooterWrapper>
+    );
+};
 
-export default Footer
+export default Footer;

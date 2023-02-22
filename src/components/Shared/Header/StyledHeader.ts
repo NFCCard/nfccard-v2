@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 export const StyledHeaderWrapper = styled.div`
-    ${tw`bg-alternative dark:bg-black  sticky m-0 p-1 min-h-[50px]  `}
+    ${tw`bg-alternative dark:bg-black  sticky m-0 p-1 min-h-[50px] select-none`}
 `;
 
 export const StyledContainer = styled.div`
