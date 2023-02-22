@@ -8,14 +8,14 @@ import {
 interface IProps {
     children?: any;
     button: any;
-    dropDownSituation: boolean;
+    isDropDownOpen: boolean;
 }
 
-const DropDown = ({ children, button, dropDownSituation }: IProps) => {
+const DropDown = ({ children, button, isDropDownOpen }: IProps) => {
     return (
         <StyledDropDownWrapper>
             <StyledButtonDropDownWrapper>{button}</StyledButtonDropDownWrapper>
-            {dropDownSituation && (
+            {isDropDownOpen && (
                 <StyledModalContentWrapper>
                     {children}
                 </StyledModalContentWrapper>
