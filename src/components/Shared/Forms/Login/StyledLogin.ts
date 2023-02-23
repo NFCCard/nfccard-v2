@@ -9,7 +9,7 @@ export const StyledForm = styled.form`
     ${tw` m-0 p-4 rounded flex justify-center flex-col bg-alternative `}
 `;
 
-export const StyledInputLable = styled.label`
+export const StyledInputLabel = styled.label`
     ${tw`mb-2`}
 `;
 export const StyledInput = styled.input`

@@ -2,7 +2,7 @@ import React from "react";
 import {
     StyledForm,
     StyledInput,
-    StyledInputLable,
+    StyledInputLabel,
     StyledLoginWrapper,
     StyledSubmitButton,
 } from "./StyledLogin";
@@ -11,13 +11,13 @@ const Login = () => {
     return (
         <StyledLoginWrapper>
             <StyledForm action="submit">
-                <StyledInputLable htmlFor="username">
+                <StyledInputLabel htmlFor="username">
                     User name :
-                </StyledInputLable>
+                </StyledInputLabel>
                 <StyledInput type="text" id="username" name="username" />
-                <StyledInputLable htmlFor="password">
+                <StyledInputLabel htmlFor="password">
                     Password :
-                </StyledInputLable>
+                </StyledInputLabel>
                 <StyledInput type="password" id="password" name="password" />
                 <StyledSubmitButton type="submit">Login</StyledSubmitButton>
             </StyledForm>

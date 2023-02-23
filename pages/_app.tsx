@@ -9,17 +9,17 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../styles/globals.css";
 import LocalizationProvider from "src/components/Shared/LocalizationProvider";
-import Layout from "src/components/Shared/Layout/Layout";
 
-export default function App({ Component, pageProps }: AppProps) {
+type Props = AppProps;
+export default function App({ Component, pageProps }: Props | any) {
+    const emptyPage = (page: any) => page;
+    const getLayout = Component.getLayout ?? emptyPage;
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
                 <LocalizationProvider messages={{ local: "fa" }}>
                     <ThemeProvider enableSystem={false} attribute="class">
-                        <Layout>
-                            <Component {...pageProps} />
-                        </Layout>
+                        {getLayout(<Component {...pageProps} />)}
                     </ThemeProvider>
                 </LocalizationProvider>
             </PersistGate>
