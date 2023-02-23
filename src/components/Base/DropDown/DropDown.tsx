@@ -1,5 +1,5 @@
 import { ReactFC } from "@type/types";
-import React from "react";
+import React, { ReactNode } from "react";
 import {
     StyledButtonDropDownWrapper,
     StyledDropDownWrapper,
@@ -7,7 +7,7 @@ import {
 } from "./StyledDropDown";
 
 interface IDropDownProps {
-    button: any;
+    button: ReactNode;
     isDropDownOpen: boolean;
 }
 
