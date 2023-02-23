@@ -1,6 +1,6 @@
 import React from "react";
 import { IntlProvider } from "react-intl";
-import { useAppSelector } from "../../../redux/hooks";
+import { useAppSelector } from "@redux/hooks";
 
 export interface Props {
     messages: any;
@@ -8,7 +8,6 @@ export interface Props {
 }
 
 export default function LocalizationProvider(props: Props) {
-    //@ts-ignore
     const locale = useAppSelector(state => state.localization.locale);
     return (
         <IntlProvider

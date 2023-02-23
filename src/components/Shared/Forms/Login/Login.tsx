@@ -5,9 +5,9 @@ import {
     StyledInputLable,
     StyledLoginWrapper,
     StyledSubmitButton,
-} from "./StyledLoginData";
+} from "./StyledLogin";
 
-const LoginData = () => {
+const Login = () => {
     return (
         <StyledLoginWrapper>
             <StyledForm action="submit">
@@ -25,4 +25,4 @@ const LoginData = () => {
     );
 };
 
-export default LoginData;
+export default Login;

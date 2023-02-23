@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import DropDown from "@base/DropDown/DropDown";
-import { StyledProfileDropDownWrapper } from "./StyledProfileDropDown";
 import Image from "next/image";
-import useOnClickOutside from "src/hooks/useOnClickOutside";
+import DropDown from "@base/DropDown/DropDown";
+import useOnClickOutside from "@hooks/useOnClickOutside";
+import { StyledProfileDropDownWrapper } from "./StyledProfileDropDown";
 
 const ProfileDropDown = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);

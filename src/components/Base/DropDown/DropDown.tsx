@@ -1,3 +1,4 @@
+import { ReactFC } from "@type/types";
 import React from "react";
 import {
     StyledButtonDropDownWrapper,
@@ -5,13 +6,16 @@ import {
     StyledModalContentWrapper,
 } from "./StyledDropDown";
 
-interface IProps {
-    children?: any;
+interface IDropDownProps {
     button: any;
     isDropDownOpen: boolean;
 }
 
-const DropDown = ({ children, button, isDropDownOpen }: IProps) => {
+const DropDown: ReactFC<IDropDownProps> = ({
+    button,
+    isDropDownOpen,
+    children,
+}) => {
     return (
         <StyledDropDownWrapper>
             <StyledButtonDropDownWrapper>{button}</StyledButtonDropDownWrapper>
