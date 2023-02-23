@@ -8,16 +8,7 @@ module.exports = {
     ],
     darkMode: "class",
     theme: {
-        fontSize: {
-            sm: "0.8rem",
-            base: "16px",
-            button: "16px",
-            "body-text-normal": "20px",
-            "body-text-small": "16px",
-            title1: "20px",
-            title2: "16px",
-            title3: "12px",
-        },
+        fontSize: {},
         extend: {
             colors: {
                 "purple-1": "#202874",
