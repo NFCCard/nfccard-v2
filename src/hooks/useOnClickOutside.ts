@@ -25,7 +25,7 @@ const getAddOptions = (
 const currentDocument = typeof document !== "undefined" ? document : undefined;
 
 export default function useOnClickOutside(
-    ref: React.RefObject<HTMLElement>,
+    ref: React.RefObject<HTMLElement> | null,
     handler: Handler | null,
     { document = currentDocument } = {}
 ) {
@@ -39,15 +39,16 @@ export default function useOnClickOutside(
             return;
         }
         const listener = (event: PossibleEvent) => {
-            if (
-                !ref.current ||
-                !handlerRef.current ||
-                ref.current.contains(event.target as Node)
-            ) {
-                return;
+            if (ref) {
+                if (
+                    !ref.current ||
+                    !handlerRef.current ||
+                    ref.current.contains(event.target as Node)
+                ) {
+                    return;
+                }
+                handlerRef.current(event);
             }
-
-            handlerRef.current(event);
         };
 
         events.forEach(event => {
@@ -61,25 +62,3 @@ export default function useOnClickOutside(
         };
     }, [!handler]);
 }
-// export function useOnClickOutside<T extends HTMLElement = HTMLElement>(
-//     ref: RefObject<T>,
-//     handler: () => void
-// ): void {
-//     useEffect(() => {
-//         const listener = event => {
-//             // Do nothing if clicking ref's element or descendent elements
-//             if (!ref.current || ref.current.contains(event.target)) {
-//                 return;
-//             }
-//             handler(event);
-//         };
-//         document.addEventListener("mousedown", listener);
-//         document.addEventListener("touchstart", listener);
-//         return () => {
-//             document.removeEventListener("mousedown", listener);
-//             document.removeEventListener("touchstart", listener);
-//         };
-//     }, [ref, handler]);
-// }
-
-// export default useOnClickOutside;
