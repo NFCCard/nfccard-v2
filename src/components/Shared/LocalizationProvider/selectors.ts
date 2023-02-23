@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
-import { ApplicationRootState } from "../../../types/types";
-import { initialState } from "../../../redux/slices/localization/localizationSlice";
+import { ApplicationRootState } from "@type/types";
+import { initialState } from "@redux/slices/localization/localizationSlice";
 
 /**
  * Direct selector to the languageToggle state domain

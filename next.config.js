@@ -25,7 +25,7 @@ const nextConfig = {
             "@hooks": join(__dirname, "./src/hooks"),
             "@redux": join(__dirname, "./src/redux"),
             "@utils": join(__dirname, "./src/utils"),
-            "@types": join(__dirname, "./src/types"),
+            "@type": join(__dirname, "./src/types"),
         };
 
         return config;

@@ -23,7 +23,7 @@
             "@hooks/*": ["src/hooks/*"],
             "@redux/*": ["src/redux/*"],
             "@utils/*": ["src/utils/*"],
-            "@types/*": ["src/types/*"],
+            "@type/*": ["src/types/*"],
             "@containers/*": ["src/containers/*"]
         }
     },
