@@ -243,7 +243,7 @@ const Register = () => {
         resume: "",
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (values: any) => {
         let socialMediaList = [];
     };
 

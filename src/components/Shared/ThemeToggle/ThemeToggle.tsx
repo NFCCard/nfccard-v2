@@ -27,7 +27,7 @@ const ThemeToggle = () => {
             <StyledToggleWrapper>
                 <StyledIconsWrapper>
                     <SunIcon />
-                    <StyledToggle onClick={toggleThemeHandler}>
+                    <StyledToggle onClick={toggleThemeHandler} isDark={isDark}>
                         <StyledToggleCircle
                             isDark={isDark}
                         ></StyledToggleCircle>

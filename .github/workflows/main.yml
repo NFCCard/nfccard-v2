@@ -1,0 +1,22 @@
+name: Create Pull Request
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: ${{ github.ref }}
+          base: main
+          title: New Pull Request ${{ github.ref }}
+          body: This is a new pull request.
