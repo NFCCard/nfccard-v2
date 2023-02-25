@@ -8,14 +8,15 @@ export const StyledToggleWrapper = styled.div`
 `;
 
 export const StyledIconsWrapper = styled.div`
-    ${tw`flex justify-center items-center`}
+    ${tw`flex justify-center items-center text-sadafi dark:text-black`}
 `;
 
-export const StyledToggle = styled.div`
-    ${tw`w-14 h-7 flex items-center bg-gray-300 rounded-full relative m-2`}
+export const StyledToggle = styled.div<{ isDark: boolean }>`
+    ${tw`w-14 h-7 flex items-center bg-smokeWhite rounded-full relative m-2`}
+    ${props => props.isDark && tw`bg-black`}
 `;
 
 export const StyledToggleCircle = styled.div<{ isDark: boolean }>`
-    ${tw`bg-white w-5 h-5 rounded-full shadow-md transition-all duration-500 absolute left-[8%] top-[18%]`}
-    ${props => props.isDark && tw`left-[58%]`}
+    ${tw`bg-primary w-5 h-5 rounded-full shadow-md transition-all duration-500 absolute left-[8%] top-[50%] translate-y-[-50%] `}
+    ${props => props.isDark && tw`left-[58%] bg-primary`}
 `;
