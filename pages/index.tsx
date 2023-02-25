@@ -11,9 +11,8 @@ function HomePage() {
             <Modal
                 isOpen={open}
                 onClose={() => setOpen(false)}
-                animation="fade"
-                // hasBackdrop={false}
-                // closeOnBackDropClick={false}
+                animation="slide-down"
+                closeOnBackDropClick
             >
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Architecto in vero sunt eligendi, assumenda provident amet omnis

@@ -16,7 +16,6 @@ import { CSSTransition } from "react-transition-group";
 
 interface IModalProps {
     animation?: "fade" | "slide-down";
-    hasBackdrop?: boolean;
     header?: ReactNode;
     isOpen: boolean;
     closeOnBackDropClick?: boolean;
@@ -27,7 +26,6 @@ const Modal: ReactFC<IModalProps> = ({
     isOpen,
     onClose,
     animation,
-    hasBackdrop = true,
     closeOnBackDropClick = true,
     children,
     header,
@@ -39,14 +37,14 @@ const Modal: ReactFC<IModalProps> = ({
     }
     .core-modal-fade-enter-active {
     opacity: 1;
-    transition: opacity 200ms;
+    transition: opacity 300ms;
     }
     .core-modal-fade-exit {
     opacity: 1;
     }
     .core-modal-fade-exit-active {
     opacity: 0;
-    transition: opacity 200ms;
+    transition: opacity 300ms;
     }
 
     .core-modal-slide-down-enter {
@@ -54,7 +52,7 @@ const Modal: ReactFC<IModalProps> = ({
     }
     .core-modal-slide-down-enter-active {
     top: 20px;
-    transition: all 200ms;
+    transition: all 300ms;
     }
     .core-modal-slide-down-enter-done{
     top: 20px;
@@ -65,20 +63,9 @@ const Modal: ReactFC<IModalProps> = ({
     }
     .core-modal-slide-down-exit-active {
     top: -200px;
-    transition: all 200ms;
+    transition: all 300ms;
     }
   `;
-    const handleModalAnimation = () => {
-        switch (animation) {
-            case "fade":
-                return "core-modal-fade";
-            case "slide-down":
-                return "core-modal-slide-down";
-
-            default:
-                return "core-modal-fade";
-        }
-    };
 
     useOnClickOutside(modalRef, () => {
         if (!closeOnBackDropClick) {
@@ -89,70 +76,44 @@ const Modal: ReactFC<IModalProps> = ({
 
     return createPortal(
         <>
-            <GlobalStyle />
             <CSSTransition
                 in={isOpen}
-                timeout={200}
-                classNames={handleModalAnimation()}
+                timeout={300}
+                classNames={
+                    animation === "fade"
+                        ? "core-modal-fade"
+                        : "core-modal-slide-down"
+                }
                 unmountOnExit
             >
                 <>
+                    <GlobalStyle />
                     {animation === "fade" && (
-                        <>
-                            {hasBackdrop ? (
-                                <StyledModalOverLay>
-                                    <StyledModal
-                                        ref={modalRef}
-                                        hasBackdrop={hasBackdrop}
-                                    >
-                                        <StyledModalHeader>
-                                            {header ? (
-                                                header
-                                            ) : (
-                                                <StyledModalHeaderWrapper>
-                                                    <StyledCloseButton
-                                                        className="close-button"
-                                                        onClick={onClose}
-                                                    >
-                                                        &times;
-                                                    </StyledCloseButton>
-                                                </StyledModalHeaderWrapper>
-                                            )}
-                                        </StyledModalHeader>
-                                        <StyledModalContent>
-                                            {children}
-                                        </StyledModalContent>
-                                    </StyledModal>
-                                </StyledModalOverLay>
-                            ) : (
-                                <StyledModal
-                                    ref={modalRef}
-                                    hasBackdrop={hasBackdrop}
-                                >
-                                    <StyledModalHeader>
-                                        {header ? (
-                                            header
-                                        ) : (
-                                            <StyledModalHeaderWrapper>
-                                                <StyledCloseButton
-                                                    className="close-button"
-                                                    onClick={onClose}
-                                                >
-                                                    &times;
-                                                </StyledCloseButton>
-                                            </StyledModalHeaderWrapper>
-                                        )}
-                                    </StyledModalHeader>
-                                    <StyledModalContent>
-                                        {children}
-                                    </StyledModalContent>
-                                </StyledModal>
-                            )}
-                        </>
+                        <StyledModalOverLay>
+                            <StyledModal ref={modalRef}>
+                                <StyledModalHeader>
+                                    {header ? (
+                                        header
+                                    ) : (
+                                        <StyledModalHeaderWrapper>
+                                            <StyledCloseButton
+                                                className="close-button"
+                                                onClick={onClose}
+                                            >
+                                                &times;
+                                            </StyledCloseButton>
+                                        </StyledModalHeaderWrapper>
+                                    )}
+                                </StyledModalHeader>
+                                <StyledModalContent>
+                                    {children}
+                                </StyledModalContent>
+                            </StyledModal>
+                        </StyledModalOverLay>
                     )}
                     {animation === "slide-down" && (
                         <StyledSlideDown>
-                            <StyledModal ref={modalRef} hasBackdrop={false}>
+                            <StyledModal ref={modalRef}>
                                 <StyledModalHeader>
                                     {header ? (
                                         header

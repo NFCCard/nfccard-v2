@@ -4,10 +4,8 @@ import tw from "twin.macro";
 export const StyledModalOverLay = styled.div`
     ${tw`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-[rgba(0, 0, 0, 0.5)] z-50 `}
 `;
-export const StyledModal = styled.div<{ hasBackdrop: boolean }>`
+export const StyledModal = styled.div`
     ${tw` bg-white shadow-[rgba(99, 99, 99, 0.2) 0px 2px 8px 0px] rounded`}
-    ${props =>
-        props.hasBackdrop ? tw`` : tw`fixed top-[50%] translate-y-[-50%]`}
 `;
 export const StyledSlideDown = styled.div`
     ${tw`fixed w-full flex justify-center`}
