@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 export const StyledRegisterPageContainer = styled.div`
-    ${tw`flex flex-col justify-center items-center text-right gap-4 h-[calc(100vh - 19px)] dark:bg-alternative`}
+    ${tw`flex flex-col justify-center items-center text-right gap-4 h-[calc(100vh - 19px)] dark:bg-primary`}
 `;
 
 export const StyledFormContainer = styled.div`
@@ -22,5 +22,5 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledButton = styled.button`
-    ${tw`w-[fit-content] bg-alternative p-2 text-center rounded-[6px] text-white text-[12px]`}
+    ${tw`w-[fit-content] bg-primary p-2 text-center rounded-[6px] text-white text-[12px]`}
 `;
