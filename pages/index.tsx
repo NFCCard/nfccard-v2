@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "@base/Modal/Modal";
-import Home from "containers/Home/Home";
+import Home from "@containers/Home/Home";
+import Layout from "@components/Shared/Layout/Layout";
 
 function HomePage() {
     const [open, setOpen] = useState(false);
@@ -23,4 +24,4 @@ function HomePage() {
     );
 }
 
-export default HomePage;
+HomePage.getLayout = (page: any) => <Layout>{page}</Layout>;
