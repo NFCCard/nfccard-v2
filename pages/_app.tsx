@@ -8,6 +8,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../styles/globals.css";
+import "../public/static/fontawesome/pro/css/all.css";
+
 import LocalizationProvider from "src/components/Shared/LocalizationProvider";
 
 type Props = AppProps;

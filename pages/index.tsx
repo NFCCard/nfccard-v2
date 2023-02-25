@@ -1,7 +1,8 @@
+import Layout from "@components/Shared/Layout/Layout";
 import Home from "@containers/Home/Home";
 import React from "react";
 
-function HomePage() {
+export default function HomePage() {
     return (
         <main>
             <Home />
@@ -9,4 +10,4 @@ function HomePage() {
     );
 }
 
-export default HomePage;
+HomePage.getLayout = (page: any) => <Layout>{page}</Layout>;
