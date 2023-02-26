@@ -10,7 +10,6 @@ import {
     StyledInputError,
     StyledInputWrapper,
     StyledFormWrapper,
-    StyledFirstSide,
 } from "./StyledRegister";
 import { Register } from "./registerType";
 import { registerFormValidation } from "src/validation/registerFormValidation";
@@ -43,7 +42,6 @@ const RegisterForm = () => {
     return (
         <StyledRegisterPageContainer>
             <StyledFormContainer>
-                <StyledFirstSide></StyledFirstSide>
                 <StyledForm onSubmit={formik.handleSubmit}>
                     <StyledFormWrapper>
                         <StyledInputWrapper>
