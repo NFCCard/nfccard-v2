@@ -3,7 +3,7 @@ import Modal from "@base/Modal/Modal";
 import Home from "@containers/Home/Home";
 import Layout from "@components/Shared/Layout/Layout";
 
-function HomePage() {
+export default function HomePage() {
     const [open, setOpen] = useState(false);
     return (
         <main>
