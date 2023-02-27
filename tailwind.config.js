@@ -18,10 +18,20 @@ module.exports = {
             "4xl": "30px",
         },
 
+        screens: {
+            mobile: { max: "576px" },
+            // => @media (max-width: 576px) {...}
+
+            tablet: { min: "576px", max: "991" },
+            // => @media (min-width: 640px) { ... }
+
+            desktop: "992px",
+            // => @media (min-width: 992px) { ... }
+        },
+
         extend: {
             colors: {
                 primary: "#F99417",
-                "primary-dark": "#F99417",
                 secondary: "#5D3891",
                 sadafi: "#E8E2E2",
                 smokeWhite: "#F5F5F5",
