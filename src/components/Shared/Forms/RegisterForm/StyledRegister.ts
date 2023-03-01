@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 export const StyledRegisterPageContainer = styled.div`
-    ${tw`flex w-full justify-center items-center text-right gap-4 h-[100vh] select-none bg-sadafi`}
+    ${tw`flex w-full justify-center items-center text-right gap-4 h-[100vh] select-none bg-sadafi dark:bg-black`}
 `;
 
 export const StyledSidesWrapper = styled.div`
@@ -27,7 +27,7 @@ export const StyledSecondSide = styled.div`
 `;
 
 export const StyledFormContainer = styled.div`
-    ${tw`flex w-full mobile:rounded-2xl rounded-r-2xl max-w-3xl h-[fit-content] flex-col justify-center items-center bg-smokeWhite dark:bg-black p-8 mobile:p-3 `}
+    ${tw`flex w-full mobile:rounded-2xl rounded-r-2xl max-w-3xl h-[fit-content] flex-col justify-center items-center dark:bg-smokeWhite bg-black p-8 mobile:p-3 `}
 `;
 
 // bg-[#d68438]
@@ -41,7 +41,7 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledHeaderForm = styled.h3`
-    ${tw`text-center mobile:text-sm font-semibold text-black dark:text-smokeWhite`}
+    ${tw`text-center mobile:text-sm font-semibold dark:text-black text-smokeWhite`}
 `;
 
 export const StyledInputWrapper = styled.div`
@@ -49,21 +49,9 @@ export const StyledInputWrapper = styled.div`
 `;
 
 export const StyledLabel = styled.label`
-    ${tw`dark:text-white text-black text-sm`}
-`;
-
-export const StyledInput = styled.input`
-    ${tw`border-[1px] border-[#0c0c0c60] dark:border-[#f0f0f060] rounded-[3px] focus-visible:outline-none text-right p-2 mt-0.5 box-border text-sm bg-transparent `}
-`;
-
-export const StyledTextArea = styled.textarea`
-    ${tw`border-none focus-visible:outline-none text-right p-1 mt-1 box-border text-[16px] rounded-[6px] `}
+    ${tw`text-white dark:text-black text-sm`}
 `;
 
 export const StyledButton = styled.button`
     ${tw`w-full bg-secondary p-2 text-center rounded-[6px] text-white text-[12px]`}
-`;
-
-export const StyledInputError = styled.span`
-    ${tw`absolute text-sm bottom-0 `}
 `;

@@ -23,6 +23,7 @@ const Input = forwardRef(
                     value={value}
                     onChange={onChange}
                     type="text"
+                    autoComplete="off"
                     {...props}
                 />
                 {error && <StyledInputError>{error}</StyledInputError>}
