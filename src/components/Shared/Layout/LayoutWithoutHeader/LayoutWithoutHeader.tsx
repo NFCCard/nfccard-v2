@@ -11,7 +11,6 @@ const LayoutWithoutHeader: ReactFC = ({ children }) => {
     return (
         <LayoutWithoutHeaderWrapper>
             <LayoutWithoutHeaderMain>{children}</LayoutWithoutHeaderMain>
-            <Footer />
         </LayoutWithoutHeaderWrapper>
     );
 };

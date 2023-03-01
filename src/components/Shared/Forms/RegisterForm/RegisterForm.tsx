@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useFormik } from "formik";
+import { Register } from "./registerType";
+import { registerFormValidation } from "src/validation/registerFormValidation";
+import logo from "../../../../../public/static/images/nfc.png";
+import Image from "next/image";
 import {
     StyledRegisterPageContainer,
     StyledForm,
     StyledFormContainer,
     StyledLabel,
-    StyledInput,
     StyledButton,
+    StyledInputWrapper,
+    StyledFormWrapper,
+    StyledFirstSide,
+    StyledSecondSide,
+    StyledSidesWrapper,
+    StyledHeaderForm,
+    StyledLogoWrapper,
 } from "./StyledRegister";
-import { Register } from "./registerType";
-// import { registerFormValidation } from "src/validation/RegisterFormValidation";
+import Input from "@base/Input/Input";
+import { ExceptMobile } from "@utils/BreakPoints";
+import Container from "@components/Shared/Container/Container";
 
 const RegisterForm = () => {
     const initialValue: Register = {
@@ -17,12 +28,10 @@ const RegisterForm = () => {
         role: 9865,
         name_fa: "",
         name_en: "",
-        des_fa: "",
-        des_en: "",
         phone: "",
         email: "",
         password: "",
-        job: "",
+        jobTitle: "",
     };
 
     const handleSubmit = (value: Register) => {
@@ -31,38 +40,238 @@ const RegisterForm = () => {
 
     const formik = useFormik({
         initialValues: initialValue,
+        validationSchema: registerFormValidation,
         onSubmit: handleSubmit,
     });
 
     return (
         <StyledRegisterPageContainer>
-            <StyledFormContainer>
-                <StyledForm onSubmit={formik.handleSubmit}>
-                    <StyledLabel htmlFor="username">نام کاربری</StyledLabel>
-                    <StyledInput type="text" id="username" name="username" />
-                    <StyledLabel htmlFor="name_fa">
-                        نام و نام خانوادگی فارسی
-                    </StyledLabel>
-                    <StyledInput type="text" id="name_fa" name="name_fa" />
-                    <StyledLabel htmlFor="name_en">
-                        نام و نام خانوادگی انگلیسی
-                    </StyledLabel>
-                    <StyledInput type="text" id="name_en" name="name_en" />
-                    <StyledLabel htmlFor="des_fa">توضیحات فارسی</StyledLabel>
-                    <StyledInput type="text" id="des_fa" name="des_fa" />
-                    <StyledLabel htmlFor="des_en">توضیحات انگلیسی</StyledLabel>
-                    <StyledInput type="text" id="des_en" name="des_en" />
-                    <StyledLabel htmlFor="phone">شماره همراه</StyledLabel>
-                    <StyledInput type="text" id="phone" name="phone" />
-                    <StyledLabel htmlFor="email">ایمیل</StyledLabel>
-                    <StyledInput type="text" id="email" name="email" />
-                    <StyledLabel htmlFor="password">رمز عبور</StyledLabel>
-                    <StyledInput type="text" id="password" name="password" />
-                    <StyledLabel htmlFor="job">شغل</StyledLabel>
-                    <StyledInput type="text" id="job" name="job" />
-                    <StyledButton type="submit">ثبت نام</StyledButton>
-                </StyledForm>
-            </StyledFormContainer>
+            <Container>
+                <StyledSidesWrapper>
+                    <ExceptMobile>
+                        <StyledFirstSide>
+                            <StyledLogoWrapper>
+                                <Image
+                                    src={logo}
+                                    alt="logo"
+                                    width={200}
+                                    height={200}
+                                />
+                            </StyledLogoWrapper>
+                        </StyledFirstSide>
+                    </ExceptMobile>
+                    <StyledSecondSide>
+                        <StyledFormContainer>
+                            <StyledForm onSubmit={formik.handleSubmit}>
+                                <StyledHeaderForm>ثبت نام</StyledHeaderForm>
+                                <StyledFormWrapper>
+                                    <StyledInputWrapper>
+                                        <StyledLabel htmlFor="username">
+                                            نام کاربری
+                                        </StyledLabel>
+                                        <Input
+                                            value={formik.values.username}
+                                            type="text"
+                                            id="username"
+                                            name="username"
+                                            onChange={e => {
+                                                formik.setValues({
+                                                    ...formik.values,
+                                                    username: e.target.value,
+                                                });
+                                            }}
+                                            onFocus={() =>
+                                                formik.setTouched({
+                                                    username: true,
+                                                })
+                                            }
+                                            error={
+                                                formik.errors.username &&
+                                                formik.touched.username
+                                                    ? formik.errors.username
+                                                    : ""
+                                            }
+                                        />
+                                    </StyledInputWrapper>
+                                    <StyledInputWrapper>
+                                        <StyledLabel htmlFor="name_fa">
+                                            نام و نام خانوادگی فارسی
+                                        </StyledLabel>
+                                        <Input
+                                            value={formik.values.name_fa}
+                                            type="text"
+                                            id="name_fa"
+                                            name="name_fa"
+                                            onChange={e => {
+                                                formik.setValues({
+                                                    ...formik.values,
+                                                    name_fa: e.target.value,
+                                                });
+                                            }}
+                                            onFocus={() =>
+                                                formik.setTouched({
+                                                    name_fa: true,
+                                                })
+                                            }
+                                            error={
+                                                formik.errors.name_fa &&
+                                                formik.touched.name_fa
+                                                    ? formik.errors.name_fa
+                                                    : ""
+                                            }
+                                        />
+                                    </StyledInputWrapper>
+                                    <StyledInputWrapper>
+                                        <StyledLabel htmlFor="name_en">
+                                            نام و نام خانوادگی انگلیسی
+                                        </StyledLabel>
+                                        <Input
+                                            value={formik.values.name_en}
+                                            type="text"
+                                            id="name_en"
+                                            name="name_en"
+                                            onChange={e => {
+                                                formik.setValues({
+                                                    ...formik.values,
+                                                    name_en: e.target.value,
+                                                });
+                                            }}
+                                            onFocus={() =>
+                                                formik.setTouched({
+                                                    name_en: true,
+                                                })
+                                            }
+                                            error={
+                                                formik.errors.name_en &&
+                                                formik.touched.name_en
+                                                    ? formik.errors.name_en
+                                                    : ""
+                                            }
+                                        />
+                                    </StyledInputWrapper>
+                                    <StyledInputWrapper>
+                                        <StyledLabel htmlFor="jobTitle">
+                                            شغل
+                                        </StyledLabel>
+                                        <Input
+                                            value={formik.values.jobTitle}
+                                            type="text"
+                                            id="jobTitle"
+                                            name="jobTitle"
+                                            onChange={e => {
+                                                formik.setValues({
+                                                    ...formik.values,
+                                                    jobTitle: e.target.value,
+                                                });
+                                            }}
+                                            onFocus={() =>
+                                                formik.setTouched({
+                                                    jobTitle: true,
+                                                })
+                                            }
+                                            error={
+                                                formik.errors.jobTitle &&
+                                                formik.touched.jobTitle
+                                                    ? formik.errors.jobTitle
+                                                    : ""
+                                            }
+                                        />
+                                    </StyledInputWrapper>
+                                    <StyledInputWrapper>
+                                        <StyledLabel htmlFor="phone">
+                                            شماره همراه
+                                        </StyledLabel>
+                                        <Input
+                                            inputMode="numeric"
+                                            value={formik.values.phone}
+                                            type="text"
+                                            id="phone"
+                                            name="phone"
+                                            onChange={e => {
+                                                formik.setValues({
+                                                    ...formik.values,
+                                                    phone: e.target.value,
+                                                });
+                                            }}
+                                            onFocus={() =>
+                                                formik.setTouched({
+                                                    phone: true,
+                                                })
+                                            }
+                                            error={
+                                                formik.errors.phone &&
+                                                formik.touched.phone
+                                                    ? formik.errors.phone
+                                                    : ""
+                                            }
+                                        />
+                                    </StyledInputWrapper>
+                                    <StyledInputWrapper>
+                                        <StyledLabel htmlFor="email">
+                                            ایمیل
+                                        </StyledLabel>
+                                        <Input
+                                            inputMode="email"
+                                            value={formik.values.email}
+                                            type="text"
+                                            id="email"
+                                            name="email"
+                                            onChange={e => {
+                                                formik.setValues({
+                                                    ...formik.values,
+                                                    email: e.target.value,
+                                                });
+                                            }}
+                                            onFocus={() =>
+                                                formik.setTouched({
+                                                    email: true,
+                                                })
+                                            }
+                                            error={
+                                                formik.errors.email &&
+                                                formik.touched.email
+                                                    ? formik.errors.email
+                                                    : ""
+                                            }
+                                        />
+                                    </StyledInputWrapper>
+                                    <StyledInputWrapper>
+                                        <StyledLabel htmlFor="password">
+                                            رمز عبور
+                                        </StyledLabel>
+                                        <Input
+                                            value={formik.values.password}
+                                            type="password"
+                                            id="password"
+                                            name="password"
+                                            onChange={e => {
+                                                formik.setValues({
+                                                    ...formik.values,
+                                                    password: e.target.value,
+                                                });
+                                            }}
+                                            onFocus={() =>
+                                                formik.setTouched({
+                                                    password: true,
+                                                })
+                                            }
+                                            error={
+                                                formik.errors.password &&
+                                                formik.touched.password
+                                                    ? formik.errors.password
+                                                    : ""
+                                            }
+                                        />
+                                    </StyledInputWrapper>
+                                </StyledFormWrapper>
+                                <StyledButton type="submit">
+                                    ثبت نام
+                                </StyledButton>
+                            </StyledForm>
+                        </StyledFormContainer>
+                    </StyledSecondSide>
+                </StyledSidesWrapper>
+            </Container>
         </StyledRegisterPageContainer>
     );
 };

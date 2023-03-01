@@ -21,8 +21,8 @@ const Header = () => {
                     <Image
                         src={"/static/images/nfc.png"}
                         alt="logo"
-                        width={50}
-                        height={50}
+                        width={80}
+                        height={80}
                         priority
                     />
                 </StyledLogoWrapper>
