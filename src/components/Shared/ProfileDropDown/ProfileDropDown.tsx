@@ -16,8 +16,8 @@ const ProfileDropDown = () => {
                     <Image
                         src={"/static/images/user.png"}
                         alt="avatar"
-                        width={30}
-                        height={30}
+                        width={50}
+                        height={50}
                         priority
                         onClick={() => setIsOpen(!isOpen)}
                     />

@@ -12,11 +12,11 @@ export const StyledIconsWrapper = styled.div`
 `;
 
 export const StyledToggle = styled.div<{ isDark: boolean }>`
-    ${tw`w-14 h-7 flex items-center bg-smokeWhite rounded-full relative m-2`}
+    ${tw`w-11 h-5 flex items-center bg-smokeWhite rounded-full relative m-2`}
     ${props => props.isDark && tw`bg-black`}
 `;
 
 export const StyledToggleCircle = styled.div<{ isDark: boolean }>`
-    ${tw`bg-primary w-5 h-5 rounded-full shadow-md transition-all duration-500 absolute left-[8%] top-[50%] translate-y-[-50%] `}
+    ${tw`bg-primary w-4 h-4 rounded-full shadow-md transition-all duration-500 absolute left-[8%] top-[50%] translate-y-[-50%] `}
     ${props => props.isDark && tw`left-[58%] bg-primary`}
 `;
