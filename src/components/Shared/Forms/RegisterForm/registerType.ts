@@ -6,5 +6,5 @@ export interface Register {
     email: string;
     password: string;
     role: number;
-    job: string;
+    jobTitle: string;
 }

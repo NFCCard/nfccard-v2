@@ -31,7 +31,7 @@ const RegisterForm = () => {
         phone: "",
         email: "",
         password: "",
-        job: "",
+        jobTitle: "",
     };
 
     const handleSubmit = (value: Register) => {
@@ -150,27 +150,29 @@ const RegisterForm = () => {
                                         />
                                     </StyledInputWrapper>
                                     <StyledInputWrapper>
-                                        <StyledLabel htmlFor="job">
+                                        <StyledLabel htmlFor="jobTitle">
                                             شغل
                                         </StyledLabel>
                                         <Input
-                                            value={formik.values.job}
+                                            value={formik.values.jobTitle}
                                             type="text"
-                                            id="job"
-                                            name="job"
+                                            id="jobTitle"
+                                            name="jobTitle"
                                             onChange={e => {
                                                 formik.setValues({
                                                     ...formik.values,
-                                                    job: e.target.value,
+                                                    jobTitle: e.target.value,
                                                 });
                                             }}
                                             onFocus={() =>
-                                                formik.setTouched({ job: true })
+                                                formik.setTouched({
+                                                    jobTitle: true,
+                                                })
                                             }
                                             error={
-                                                formik.errors.job &&
-                                                formik.touched.job
-                                                    ? formik.errors.job
+                                                formik.errors.jobTitle &&
+                                                formik.touched.jobTitle
+                                                    ? formik.errors.jobTitle
                                                     : ""
                                             }
                                         />
