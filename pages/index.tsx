@@ -11,13 +11,15 @@ function HomePage() {
             <Modal
                 isOpen={open}
                 onClose={() => setOpen(false)}
-                animation="slide-down"
+                animation="fade"
                 closeOnBackDropClick
             >
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto in vero sunt eligendi, assumenda provident amet omnis
-                tempora veritatis fugiat nobis. Sit aliquam ab blanditiis vitae
-                hic nulla reprehenderit minus?
+                <div style={{ width: "200px" }}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Consequatur, corrupti ex non architecto, ipsa vitae ea
+                    corporis delectus natus explicabo doloremque impedit
+                    assumenda eum dolores sunt esse alias nobis nemo.
+                </div>
             </Modal>
         </main>
     );
