@@ -5,7 +5,7 @@ export const StyledModalOverLay = styled.div`
     ${tw`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-[rgba(0, 0, 0, 0.5)] z-50 `}
 `;
 export const StyledModal = styled.div`
-    ${tw` bg-white shadow-[rgba(99, 99, 99, 0.2) 0px 2px 8px 0px] rounded`}
+    ${tw` shadow-[rgba(99, 99, 99, 0.2) 0px 2px 8px 0px] rounded-xl`}
 `;
 export const StyledSlideDown = styled.div`
     ${tw`fixed w-full flex justify-center`}

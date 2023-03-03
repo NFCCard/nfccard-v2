@@ -91,10 +91,10 @@ const Modal: ReactFC<IModalProps> = ({
                     {animation === "fade" && (
                         <StyledModalOverLay>
                             <StyledModal ref={modalRef}>
-                                <StyledModalHeader>
-                                    {header ? (
-                                        header
-                                    ) : (
+                                {header ? (
+                                    header
+                                ) : (
+                                    <StyledModalHeader>
                                         <StyledModalHeaderWrapper>
                                             <StyledCloseButton
                                                 className="close-button"
@@ -103,8 +103,8 @@ const Modal: ReactFC<IModalProps> = ({
                                                 &times;
                                             </StyledCloseButton>
                                         </StyledModalHeaderWrapper>
-                                    )}
-                                </StyledModalHeader>
+                                    </StyledModalHeader>
+                                )}
                                 <StyledModalContent>
                                     {children}
                                 </StyledModalContent>
@@ -114,18 +114,18 @@ const Modal: ReactFC<IModalProps> = ({
                     {animation === "slide-down" && (
                         <StyledSlideDown>
                             <StyledModal ref={modalRef}>
-                                <StyledModalHeader>
-                                    {header ? (
-                                        header
-                                    ) : (
+                                {header ? (
+                                    header
+                                ) : (
+                                    <StyledModalHeader>
                                         <button
                                             className="close-button"
                                             onClick={onClose}
                                         >
                                             &times;
                                         </button>
-                                    )}
-                                </StyledModalHeader>
+                                    </StyledModalHeader>
+                                )}
                                 <StyledModalContent>
                                     {children}
                                 </StyledModalContent>

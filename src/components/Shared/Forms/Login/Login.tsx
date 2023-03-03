@@ -1,50 +1,105 @@
-import Modal from "@base/Modal/Modal";
-import React, { useState } from "react";
+import Input from "@base/Input/Input";
+import { useFormik } from "formik";
+import React from "react";
+import { loginFormValidation } from "src/validation/loginFormValidation";
+import { LoginType } from "./loginTypes";
 import {
     StyledForm,
-    StyledInput,
     StyledInputLabel,
+    StyledInputWrapper,
     StyledLoginWrapper,
     StyledSubmitButton,
+    StyledTag,
 } from "./StyledLogin";
 
 const Login = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const initialValue: LoginType = {
+        email: "",
+        password: "",
+    };
+
+    const handleSubmit = (value: LoginType) => {
+        const formdata = {
+            email: value.email,
+            password: value.password,
+        };
+    };
+
+    const formik = useFormik({
+        initialValues: initialValue,
+        validationSchema: loginFormValidation,
+        onSubmit: handleSubmit,
+    });
 
     return (
-        <>
-            <button onClick={() => setIsOpen(true)}>ثبت نام</button>
-            <Modal
-                isOpen={isOpen}
-                onClose={() => setIsOpen(false)}
-                animation="fade"
-                closeOnBackDropClick
-            >
-                <StyledLoginWrapper>
-                    <StyledForm action="submit">
-                        <StyledInputLabel htmlFor="username">
-                            : نام کاربری
-                        </StyledInputLabel>
-                        <StyledInput
-                            type="text"
-                            id="username"
-                            name="username"
-                        />
-                        <StyledInputLabel htmlFor="password">
-                            : رمز عبور
-                        </StyledInputLabel>
-                        <StyledInput
-                            type="password"
-                            id="password"
-                            name="password"
-                        />
-                        <StyledSubmitButton type="submit">
-                            ورود
-                        </StyledSubmitButton>
-                    </StyledForm>
-                </StyledLoginWrapper>
-            </Modal>
-        </>
+        <StyledLoginWrapper>
+            <StyledTag>NFC</StyledTag>
+            <StyledForm action="submit">
+                <StyledInputWrapper>
+                    <StyledInputLabel htmlFor="email">: ایمیل</StyledInputLabel>
+                    <Input
+                        value={formik.values.email}
+                        autoComplete="off"
+                        autoCorrect="off"
+                        autoCapitalize="off"
+                        spellCheck="false"
+                        type="text"
+                        id="email"
+                        name="email"
+                        onChange={e => {
+                            formik.setValues({
+                                ...formik.values,
+                                email: e.target.value,
+                            });
+                        }}
+                        onFocus={() =>
+                            formik.setTouched({
+                                email: true,
+                            })
+                        }
+                        error={
+                            formik.errors.email && formik.touched.email
+                                ? formik.errors.email
+                                : ""
+                        }
+                    />
+                </StyledInputWrapper>
+                <StyledInputWrapper>
+                    <StyledInputLabel htmlFor="password">
+                        : رمز عبور
+                    </StyledInputLabel>
+                    <Input
+                        value={formik.values.password}
+                        autoComplete="off"
+                        autoCorrect="off"
+                        autoCapitalize="off"
+                        spellCheck="false"
+                        type="password"
+                        id="password"
+                        name="password"
+                        onChange={e => {
+                            formik.setValues({
+                                ...formik.values,
+                                password: e.target.value,
+                            });
+                        }}
+                        onFocus={() =>
+                            formik.setTouched({
+                                password: true,
+                            })
+                        }
+                        error={
+                            formik.errors.password && formik.touched.password
+                                ? formik.errors.password
+                                : ""
+                        }
+                    />
+                </StyledInputWrapper>
+                <StyledSubmitButton type="submit">
+                    ورود به حساب کاربری
+                </StyledSubmitButton>
+            </StyledForm>
+        </StyledLoginWrapper>
     );
 };
 

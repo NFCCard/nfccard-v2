@@ -15,5 +15,5 @@
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
-    "cSpell.words": ["persistor", "reduxjs", "sadafi", "swiper"]
+    "cSpell.words": ["formdata", "persistor", "reduxjs", "sadafi", "swiper"]
 }

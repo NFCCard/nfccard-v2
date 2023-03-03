@@ -1,6 +1,11 @@
 import axiosBaseQuery from "@api/axiosBaseQuery";
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { registerReqBody, registerResponse } from "./authApiTypes";
+import {
+    loginReqBody,
+    loginResponse,
+    registerReqBody,
+    registerResponse,
+} from "./authApiTypes";
 
 export const authApi = createApi({
     reducerPath: "authApi",
@@ -12,6 +17,14 @@ export const authApi = createApi({
         register: builder.mutation<registerResponse, registerReqBody>({
             query: data => ({
                 url: "/register",
+                method: "POST",
+                sendAuthorization: false,
+                data: data,
+            }),
+        }),
+        login: builder.mutation<loginResponse, loginReqBody>({
+            query: data => ({
+                url: "/login",
                 method: "POST",
                 sendAuthorization: false,
                 data: data,

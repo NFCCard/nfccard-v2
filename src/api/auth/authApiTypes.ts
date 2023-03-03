@@ -53,3 +53,10 @@ export interface registerReqBody {
     password: string;
     jobTitle?: string;
 }
+
+export interface loginReqBody {
+    email: string;
+    password: string;
+}
+
+export interface loginResponse {}
