@@ -17,12 +17,15 @@ import {
     StyledSidesWrapper,
     StyledHeaderForm,
     StyledLogoWrapper,
+    StyledTooltip,
 } from "./StyledRegister";
 import Input from "@base/Input/Input";
 import { ExceptMobile } from "@utils/BreakPoints";
 import Container from "@components/Shared/Container/Container";
+import { useRegisterMutation } from "@api/auth/authApi";
 
 const RegisterForm = () => {
+    const [register, { data }] = useRegisterMutation();
     const initialValue: Register = {
         username: "",
         role: 9865,
@@ -35,7 +38,18 @@ const RegisterForm = () => {
     };
 
     const handleSubmit = (value: Register) => {
-        console.log(value);
+        const formdata = {
+            username: value.username,
+            role: value.role,
+            name_fa: value.name_fa,
+            name_en: value.name_en,
+            email: value.email,
+            phone: value.phone,
+            jobTitle: value.jobTitle,
+            password: value.password,
+        };
+        register(formdata);
+        console.log(data);
     };
 
     const formik = useFormik({
@@ -67,6 +81,9 @@ const RegisterForm = () => {
                                 <StyledFormWrapper>
                                     <StyledInputWrapper>
                                         <StyledLabel htmlFor="username">
+                                            <StyledTooltip title="required">
+                                                🔻
+                                            </StyledTooltip>
                                             نام کاربری
                                         </StyledLabel>
                                         <Input
@@ -95,6 +112,9 @@ const RegisterForm = () => {
                                     </StyledInputWrapper>
                                     <StyledInputWrapper>
                                         <StyledLabel htmlFor="name_fa">
+                                            <StyledTooltip title="required">
+                                                🔻
+                                            </StyledTooltip>
                                             نام و نام خانوادگی فارسی
                                         </StyledLabel>
                                         <Input
@@ -123,6 +143,9 @@ const RegisterForm = () => {
                                     </StyledInputWrapper>
                                     <StyledInputWrapper>
                                         <StyledLabel htmlFor="name_en">
+                                            <StyledTooltip title="required">
+                                                🔻
+                                            </StyledTooltip>
                                             نام و نام خانوادگی انگلیسی
                                         </StyledLabel>
                                         <Input
@@ -179,10 +202,15 @@ const RegisterForm = () => {
                                     </StyledInputWrapper>
                                     <StyledInputWrapper>
                                         <StyledLabel htmlFor="phone">
+                                            <StyledTooltip title="required">
+                                                🔻
+                                            </StyledTooltip>
                                             شماره همراه
                                         </StyledLabel>
                                         <Input
                                             inputMode="numeric"
+                                            maxLength={11}
+                                            minLength={11}
                                             value={formik.values.phone}
                                             type="text"
                                             id="phone"
@@ -208,6 +236,9 @@ const RegisterForm = () => {
                                     </StyledInputWrapper>
                                     <StyledInputWrapper>
                                         <StyledLabel htmlFor="email">
+                                            <StyledTooltip title="required">
+                                                🔻
+                                            </StyledTooltip>
                                             ایمیل
                                         </StyledLabel>
                                         <Input
@@ -237,6 +268,9 @@ const RegisterForm = () => {
                                     </StyledInputWrapper>
                                     <StyledInputWrapper>
                                         <StyledLabel htmlFor="password">
+                                            <StyledTooltip title="required">
+                                                🔻
+                                            </StyledTooltip>
                                             رمز عبور
                                         </StyledLabel>
                                         <Input

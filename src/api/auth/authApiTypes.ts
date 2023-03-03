@@ -45,11 +45,11 @@ export interface registerResponse {
 
 export interface registerReqBody {
     username: string;
-    role: 9865;
+    role: number;
     name_fa: string;
     name_en: string;
     phone: string;
     email: string;
     password: string;
-    jobTitle: string;
+    jobTitle?: string;
 }

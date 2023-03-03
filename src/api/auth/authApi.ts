@@ -1,5 +1,5 @@
 import axiosBaseQuery from "@api/axiosBaseQuery";
-import { createApi } from "@reduxjs/toolkit/dist/query";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import { registerReqBody, registerResponse } from "./authApiTypes";
 
 export const authApi = createApi({
@@ -11,17 +11,13 @@ export const authApi = createApi({
     endpoints: builder => ({
         register: builder.mutation<registerResponse, registerReqBody>({
             query: data => ({
-                url: "/login",
+                url: "/register",
                 method: "POST",
                 sendAuthorization: false,
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
                 data: data,
             }),
         }),
     }),
 });
 
-export const {} = authApi;
+export const { useRegisterMutation } = authApi;
