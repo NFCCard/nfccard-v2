@@ -1,12 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url(../public/static/fonts/fontiran.css);
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
+}
+html,
+body {
+    font-family: KalamehWeb !important;
 }
 
 body {
@@ -15,10 +20,7 @@ body {
 main {
     display: block;
 }
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-}
+
 hr {
     box-sizing: content-box; /* 1 */
     height: 0; /* 1 */
