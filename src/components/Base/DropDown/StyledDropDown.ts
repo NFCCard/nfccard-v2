@@ -9,6 +9,6 @@ export const StyledButtonDropDownWrapper = styled.div`
     ${tw`relative`}
 `;
 
-export const StyledModalContentWrapper = styled.div`
-    ${tw`absolute w-[fit-content] min-h-[100px] bg-black text-white  dark:bg-white dark:text-black min-w-[90px]  ltr:right-0  `}
+export const StyledDropDownContentWrapper = styled.div`
+    ${tw`absolute mt-1 rounded w-[fit-content] min-h-[50px] bg-secondary text-white  dark:bg-white dark:text-black min-w-[90px] flex flex-col p-2  `}
 `;

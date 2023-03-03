@@ -3,12 +3,18 @@ import Image from "next/image";
 import DropDown from "@base/DropDown/DropDown";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 import { StyledProfileDropDownWrapper } from "./StyledProfileDropDown";
+import Login from "../Forms/Login/Login";
 
 const ProfileDropDown = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const ref = useRef(null);
 
-    useOnClickOutside(ref, () => setIsOpen(false));
+    useOnClickOutside(ref, () => {
+        setIsOpen(false);
+        if (ref.current) {
+            ref.current = null;
+        }
+    });
     return (
         <StyledProfileDropDownWrapper ref={ref}>
             <DropDown
@@ -24,7 +30,7 @@ const ProfileDropDown = () => {
                 }
                 isDropDownOpen={isOpen}
             >
-                <button>profile</button>
+                <Login />
             </DropDown>
         </StyledProfileDropDownWrapper>
     );

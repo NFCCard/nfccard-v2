@@ -2,8 +2,8 @@ import { ReactFC } from "@type/types";
 import React, { ReactNode } from "react";
 import {
     StyledButtonDropDownWrapper,
+    StyledDropDownContentWrapper,
     StyledDropDownWrapper,
-    StyledModalContentWrapper,
 } from "./StyledDropDown";
 
 interface IDropDownProps {
@@ -20,9 +20,9 @@ const DropDown: ReactFC<IDropDownProps> = ({
         <StyledDropDownWrapper>
             <StyledButtonDropDownWrapper>{button}</StyledButtonDropDownWrapper>
             {isDropDownOpen && (
-                <StyledModalContentWrapper>
+                <StyledDropDownContentWrapper>
                     {children}
-                </StyledModalContentWrapper>
+                </StyledDropDownContentWrapper>
             )}
         </StyledDropDownWrapper>
     );
