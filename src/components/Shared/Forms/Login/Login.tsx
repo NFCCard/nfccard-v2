@@ -1,8 +1,15 @@
+import { useLoginMutation } from "@api/auth/authApi";
 import Input from "@base/Input/Input";
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { useFormik } from "formik";
 import React from "react";
 import { loginFormValidation } from "src/validation/loginFormValidation";
 import { LoginType } from "./loginTypes";
+import {
+    updateUser,
+    updateAccessToken,
+} from "@redux/slices/authentication/authentication";
+
 import {
     StyledForm,
     StyledInputLabel,
@@ -11,30 +18,42 @@ import {
     StyledSubmitButton,
     StyledTag,
 } from "./StyledLogin";
+import { openLoginModal } from "@redux/slices/modals/modalsSlice";
 
 const Login = () => {
+    const { user, accessToken } = useAppSelector(state => state.auth);
+    const dispatch = useAppDispatch();
+
+    const [login] = useLoginMutation();
+
     const initialValue: LoginType = {
         email: "",
         password: "",
     };
-
     const handleSubmit = (value: LoginType) => {
-        const formdata = {
-            email: value.email,
-            password: value.password,
-        };
+        login(value)
+            .then((res: any) => {
+                dispatch(updateAccessToken(res.data?.tokens.access.token));
+                dispatch(updateUser(res.data.user.name_en));
+                dispatch(openLoginModal(false));
+            })
+            .catch(err => {
+                console.log(err);
+            });
     };
 
     const formik = useFormik({
         initialValues: initialValue,
         validationSchema: loginFormValidation,
-        onSubmit: handleSubmit,
+        onSubmit: values => {
+            handleSubmit(values);
+        },
     });
 
     return (
         <StyledLoginWrapper>
             <StyledTag>NFC</StyledTag>
-            <StyledForm action="submit">
+            <StyledForm onSubmit={formik.handleSubmit}>
                 <StyledInputWrapper>
                     <StyledInputLabel htmlFor="email">: ایمیل</StyledInputLabel>
                     <Input

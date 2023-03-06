@@ -32,50 +32,21 @@ const axiosBaseQuery =
         { url, headers = {}, sendAuthorization = true, method, data, params },
         { getState }
     ) => {
-        try {
-            const token = (getState() as RootState).auth.accessToken;
-            const auth = sendAuthorization
-                ? { Authorization: `Bearer ${token}` }
-                : {};
-            const result = await axiosInstance({
-                url: baseUrl + url,
-                method,
-                data,
-                params,
-                headers: {
-                    ...auth,
-                    ...headers,
-                },
-            });
-            return {
-                data: result.data,
-                message: result.data.message,
-                status: result.data.status,
-            };
-        } catch (axiosError) {
-            let err = axiosError as AxiosError;
-            // 👇️ ts-ignore ignores any ts errors on the next line
-            // @ts-ignore
-            const keysError = err.response?.data?.errors;
-            const defaultError =
-                "متاسفانه خطایی پیش آمده لطفا دوباره تلاش کنید.";
-            return {
-                error: {
-                    status: err.response?.status,
-                    data: err.response?.data || err.message,
-                    message:
-                        (keysError?.length > 0
-                            ? // 👇️ ts-ignore ignores any ts errors on the next line
-                              // @ts-ignore
-                              err.response?.data?.errors[keysError[0]][0]
-                            : null) ||
-                        // 👇️ ts-ignore ignores any ts errors on the next line
-                        // @ts-ignore
-                        err.response?.data?.message ||
-                        defaultError,
-                },
-            };
-        }
+        const token = (getState() as RootState).auth.accessToken;
+        const auth = sendAuthorization
+            ? { Authorization: `Bearer ${token}` }
+            : {};
+        const result = await axiosInstance({
+            url: baseUrl + url,
+            method,
+            data,
+            params,
+            headers: {
+                ...auth,
+                ...headers,
+            },
+        });
+        return { data: result.data };
     };
 
 export default axiosBaseQuery;

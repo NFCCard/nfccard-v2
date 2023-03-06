@@ -59,4 +59,46 @@ export interface loginReqBody {
     password: string;
 }
 
-export interface loginResponse {}
+interface social {
+    link: string;
+    name: string;
+    _id: string;
+}
+export interface loginResponse {
+    resource: {
+        avatar: {
+            url: string;
+        };
+        createdAt: string;
+        resume: {
+            url: string;
+        };
+        updatedAt: string;
+        user: string;
+        __v: number | string;
+        _id: string;
+    };
+    tokens: {
+        access: {
+            expires: string;
+            token: string;
+        };
+        refresh: {
+            expires: string;
+            token: string;
+        };
+    };
+    user: {
+        description_en: string;
+        description_fa: string;
+        email: string;
+        id: string;
+        isEmailVerified: boolean;
+        name_en: string;
+        name_fa: string;
+        phone: string;
+        role: string;
+        socials: social[] | [];
+        username: string;
+    };
+}

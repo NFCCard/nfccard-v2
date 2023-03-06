@@ -1,5 +1,6 @@
+import { authApi } from "../api/auth/authApi";
 
 export const apiReducers = {
-    // [todoAPI.reducerPath]: todoAPI.reducer,
+    [authApi.reducerPath]: authApi.reducer,
     // [updateUserInfoAPI.reducerPath]: updateUserInfoAPI.reducer,
 };

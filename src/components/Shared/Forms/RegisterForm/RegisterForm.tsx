@@ -49,7 +49,6 @@ const RegisterForm = () => {
             password: value.password,
         };
         register(formdata);
-        console.log(data);
     };
 
     const formik = useFormik({
